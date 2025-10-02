@@ -5,86 +5,85 @@ body {
   padding: 0;
   background-color: #f4f4f9;
 }
+
 header {
   background: url(../img/background\ header.jpg) no-repeat center center/cover;
   color: #fff;
-  padding: 36vh;
   text-align: center;
+  position: relative;
 }
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+  animation: fadeInDown 1.5s;
+  padding: 20vh 20px;
+}
+
 header h1 {
   margin-bottom: 0;
   font-weight: 800;
   font-size: 3.7rem;
 }
+
 header p {
   font-size: 18px;
   margin-bottom: 20px;
 }
-header h1 {
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  -webkit-animation: ketik 5s steps(50, end);
-  animation: ketik 5s steps(50, end);
-}
-header p {
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  -webkit-animation: ketik 5s steps(50, end);
-  animation: ketik 5s steps(50, end);
-}
-@keyframes ketik {
+
+@keyframes fadeInDown {
   from {
-    width: 0;
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@-webkit-keyframes ketik {
-  from {
-    width: 0;
-  }
-}
-/* GANTI KODE LAMA ANDA DENGAN YANG BARU DI BAWAH INI */
 nav {
   display: flex;
   justify-content: center;
   align-items: center;
   background: #006400;
-  padding: 0 10px; /* Disederhanakan */
+  padding: 0 10px;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Menambah bayangan agar 'pop' */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 nav a {
   color: #fff;
   text-decoration: none;
-  padding: 20px 25px; /* Area klik lebih besar dan nyaman */
+  padding: 20px 25px;
   font-weight: 500;
-  text-transform: uppercase; /* Membuat teks menjadi kapital */
-  letter-spacing: 1px; /* Jarak antar huruf agar lebih rapi */
-  transition: background-color 0.3s, color 0.3s; /* Transisi super halus */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* Efek saat kursor diarahkan ke link */
 nav a:hover {
-  background-color: #004d00; /* Warna hijau sedikit lebih gelap */
+  background-color: #004d00;
   color: #f0f0f0;
 }
 
-/* Style untuk link yang sedang aktif */
 nav a.active {
-  background-color: #003300; /* Warna paling gelap untuk menandakan aktif */
-  font-weight: 700; /* Teks lebih tebal */
+  background-color: #003300;
+  font-weight: 700;
 }
-footer {
-  background: #333;
-  color: #fff;
-  padding: 10px 0;
-  text-align: center;
-}
+
 main {
   display: flex;
   flex-direction: row;
@@ -92,31 +91,43 @@ main {
   padding: 20px;
   gap: 20px;
 }
+
 #content {
   flex: 3;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+
 article {
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); /* Bayangan lebih lembut */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   display: flex;
   gap: 20px;
   position: relative;
+  overflow: hidden;
 }
+
 article p {
-  line-height: 1.8; /* Tipografi lebih baik */
+  line-height: 1.8;
   color: #555;
 }
+
 article img {
   width: 300px;
-  height: auto;
+  height: 200px;
+  object-fit: cover;
   border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
 }
+
+article:hover img {
+  transform: scale(1.05);
+}
+
 article .icons {
   position: absolute;
   top: 10px;
@@ -124,6 +135,7 @@ article .icons {
   display: flex;
   gap: 10px;
 }
+
 article .icons span {
   cursor: pointer;
   background: #ddd;
@@ -135,68 +147,87 @@ article .icons span {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s, color 0.3s; /* Transisi halus */
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
 }
+
 article .icons span:hover {
   background: #333;
   color: #fff;
+  transform: scale(1.1);
 }
+
 article .icons span.liked {
   color: red;
   background: #ffe0e0;
 }
+
 aside {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+
 aside .about-author {
-  background: #e0f7fa;
+  background: #fff;
   padding: 20px;
   border-radius: 8px;
   text-align: center;
-}
-aside .about-author img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-aside .about-author p {
-  text-align: justify;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  border-top: 5px solid #006400;
 }
 
-aside .about-author p:first-of-type {
-  font-weight: bold;
-  font-size: 20px;
-  text-align: center;
+aside .about-author img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 4px solid #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+aside .about-author h2 {
+  margin-top: 0;
+}
+
+aside .about-author p {
+  text-align: center;
+  font-size: 14px;
+}
+
 .best-authors {
   background: #fff;
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); /* Bayangan lebih lembut */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
+
 .best-authors h3 {
   margin-bottom: 15px;
 }
+
 .author-card {
   display: flex;
   align-items: center;
   gap: 15px;
   margin-bottom: 15px;
 }
+
 .author-card img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
+
 .author-card div {
   flex: 1;
 }
+
 .author-card div p {
   margin: 0;
 }
+
 .author-card button {
   background: #fff;
   color: #000;
@@ -204,17 +235,52 @@ aside .about-author p:first-of-type {
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s; /* Transisi halus */
+  transition: background-color 0.3s, color 0.3s;
 }
+
 .author-card button:hover {
   background: #000;
   color: #fff;
 }
+
 .author-card button.followed {
   background: #006400;
   color: #fff;
   border: 1px solid #006400;
 }
+
+footer {
+  background: #222;
+  color: #aaa;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#scrollToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 1001;
+  border: none;
+  outline: none;
+  background-color: #006400;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 18px;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#scrollToTopBtn:hover {
+  background-color: #004d00;
+  transform: translateY(-5px);
+}
+
 @media (max-width: 768px) {
   main {
     flex-direction: column;

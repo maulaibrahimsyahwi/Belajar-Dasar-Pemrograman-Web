@@ -1,4 +1,3 @@
-// Menambahkan event listener setelah semua konten halaman dimuat
 document.addEventListener("DOMContentLoaded", function () {
   const likeButtons = document.querySelectorAll(".like-btn");
 
@@ -19,6 +18,30 @@ document.addEventListener("DOMContentLoaded", function () {
         this.innerText = "Follow";
         this.classList.remove("followed");
       }
+    });
+  });
+
+  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+  window.onscroll = function () {
+    scrollFunction();
+  };
+
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      scrollToTopBtn.style.display = "block";
+    } else {
+      scrollToTopBtn.style.display = "none";
+    }
+  }
+
+  scrollToTopBtn.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
     });
   });
 });
