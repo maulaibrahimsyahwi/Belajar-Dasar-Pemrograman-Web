@@ -45,23 +45,39 @@ header p {
     width: 0;
   }
 }
+/* GANTI KODE LAMA ANDA DENGAN YANG BARU DI BAWAH INI */
 nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2 0px;
-  height: 50px;
   background: #006400;
-  color: #fff;
-  padding: 10px;
+  padding: 0 10px; /* Disederhanakan */
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Menambah bayangan agar 'pop' */
 }
+
 nav a {
   color: #fff;
   text-decoration: none;
-  margin: 0 15px;
+  padding: 20px 25px; /* Area klik lebih besar dan nyaman */
+  font-weight: 500;
+  text-transform: uppercase; /* Membuat teks menjadi kapital */
+  letter-spacing: 1px; /* Jarak antar huruf agar lebih rapi */
+  transition: background-color 0.3s, color 0.3s; /* Transisi super halus */
+}
+
+/* Efek saat kursor diarahkan ke link */
+nav a:hover {
+  background-color: #004d00; /* Warna hijau sedikit lebih gelap */
+  color: #f0f0f0;
+}
+
+/* Style untuk link yang sedang aktif */
+nav a.active {
+  background-color: #003300; /* Warna paling gelap untuk menandakan aktif */
+  font-weight: 700; /* Teks lebih tebal */
 }
 footer {
   background: #333;
@@ -87,10 +103,14 @@ article {
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); /* Bayangan lebih lembut */
   display: flex;
   gap: 20px;
   position: relative;
+}
+article p {
+  line-height: 1.8; /* Tipografi lebih baik */
+  color: #555;
 }
 article img {
   width: 300px;
@@ -115,10 +135,15 @@ article .icons span {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.3s, color 0.3s; /* Transisi halus */
 }
 article .icons span:hover {
   background: #333;
   color: #fff;
+}
+article .icons span.liked {
+  color: red;
+  background: #ffe0e0;
 }
 aside {
   flex: 1;
@@ -150,7 +175,7 @@ aside .about-author p:first-of-type {
   background: #fff;
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); /* Bayangan lebih lembut */
 }
 .best-authors h3 {
   margin-bottom: 15px;
@@ -179,10 +204,16 @@ aside .about-author p:first-of-type {
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; /* Transisi halus */
 }
 .author-card button:hover {
   background: #000;
   color: #fff;
+}
+.author-card button.followed {
+  background: #006400;
+  color: #fff;
+  border: 1px solid #006400;
 }
 @media (max-width: 768px) {
   main {
