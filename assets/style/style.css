@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   line-height: 1.6;
@@ -161,6 +165,7 @@ article .icons span.liked {
   background: #ffe0e0;
 }
 
+/* === ASIDE === */
 aside {
   flex: 1;
   display: flex;
